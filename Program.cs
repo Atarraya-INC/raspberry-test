@@ -25,10 +25,12 @@ namespace RaspberryTest
             {
                 while(true)
                 {
-                    Console.Clear();
-
-                    Console.WriteLine($"Temperature: {dht.Temperature}");
-                    Console.WriteLine($"Humidity: {dht.Humidity}");
+                    if (dht.IsLastReadSuccessful)
+                    {
+                        Console.Clear();
+                        Console.WriteLine($"Temperature: {dht.Temperature}");
+                        Console.WriteLine($"Humidity: {dht.Humidity}");
+                    }
 
                     Thread.Sleep(sleepTime);
                 }
